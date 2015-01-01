@@ -5,14 +5,20 @@
 	development : 开发模式
 	work : 工作模式
  -->
+ 	<properties resource="db.properties"></properties> 
+ 	<!-- 配置实体类的别名 -->
+ 	<typeAliases>
+ 		<typeAlias type="com.bin.mybatis.helloworld.bean.User" alias="User"/>
+ 		<!-- <package name="com.bin.mybatis.helloworld.bean"/> -->
+ 	</typeAliases>
 	<environments default="development">
 		<environment id="development">
 			<transactionManager type="JDBC" />
 			<dataSource type="POOLED">
-				<property name="driver" value="com.mysql.jdbc.Driver" />
-				<property name="url" value="jdbc:mysql://localhost:3306/mybatis" />
-				<property name="username" value="root" />
-				<property name="password" value="root" />
+				<property name="driver" value="${driver}" />
+				<property name="url" value="${url}" />
+				<property name="username" value="${username}" />
+				<property name="password" value="${password}" />
 			</dataSource>
 		</environment>
 	</environments>
