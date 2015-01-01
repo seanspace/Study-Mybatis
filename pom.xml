@@ -14,6 +14,16 @@
       <version>4.10</version>
       <scope>test</scope>
     </dependency>
+	<dependency>
+		<groupId>org.mybatis</groupId>
+		<artifactId>mybatis</artifactId>
+		<version>3.2.8</version>
+	</dependency>
+	<dependency>
+		<groupId>mysql</groupId>
+		<artifactId>mysql-connector-java</artifactId>
+		<version>5.1.34</version>
+	</dependency>
   </dependencies>
   <build>
     <finalName>study-mybatis</finalName>
