@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="com.bin.mybatis.order.orderMapper"> 
+<!-- 
+	由于bean的属性名和数据库中的属性名不一致,所以需要通过别名实现.
+ -->
+	 <select id="getOrder" parameterType="int" resultType="com.bin.mybatis.bean.Order">
+	 	select order_id id,order_no orderNo,order_price price from orders where order_id = #{id}
+	 </select>
+	 <select id="getOrder2" parameterType="int" parameterMap="getOrder2Map">
+	 	select * from orders where order_id = #{id}
+	 </select>
+	 <!-- 
+	 	resultMap : 封装映射关系
+	 	id : 专门针对主键
+	 	resullt:针对一般字段.
+	 -->
+	 <resultMap type="Order" id="getOrder2Map">
+	 	<id property="id" column="order_id"/>
+	 	<result property="orderNo" column="order_no"/>
+	 	<result property="price" column="order_order_price"/>
+	 </resultMap>
+</mapper>
