@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="com.bin.mybatis.onebyone.ClassMapper"> 
+<!-- 
+	根据id查询班级,带老师信息.
+	方法1: 联表查询.(嵌套结果)
+	 SELECT * FROM class c,teacher t WHERE c.teacher_id = t.t_id AND c.c_id = 1
+	方法2: 执行两次查询.(嵌套查询)
+	 SELECT * FROM class WHERE c_id = 1 ;// teacher_id = 1 
+	 SELECT * FROM teacher WHERE t_id = 1 ;
+ -->
+	<select id="getClass" parameterType="int" resultMap="getClassMap">
+		SELECT * FROM class c,teacher t WHERE c.teacher_id = t.t_id AND c.c_id = #{id}
+	</select>
+	<resultMap type="com.bin.mybatis.bean.Classes" id="getClassMap">
+		<id property="id" column="c_id"/>
+		<result property="name" column="c_name"/>
+		<association property="teacher" javaType="com.bin.mybatis.bean.Teacher">
+			<id property="id" column="t_id"/>
+			<result property="name" column="t_name"/>
+		</association>
+	</resultMap>
+	
+	<select id="getClass2" parameterType="int" resultMap="getClass2Map">
+		SELECT * FROM class WHERE c_id = #{id}
+	</select>
+	<resultMap type="com.bin.mybatis.bean.Classes" id="getClass2Map">
+		<id property="id" column="c_id"/>
+		<result property="name" column="c_name"/>
+		<association property="teacher" column="teacher_id" select="getTeacher">
+		</association>
+	</resultMap>
+	
+	<select id="getTeacher" parameterType="int" resultType="Teacher">
+		SELECT t_id id,t_name name FROM teacher WHERE t_id = #{id}
+	</select>
+</mapper>

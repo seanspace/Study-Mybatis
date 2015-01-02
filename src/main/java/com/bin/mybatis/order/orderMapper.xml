@@ -7,7 +7,7 @@
 	 <select id="getOrder" parameterType="int" resultType="com.bin.mybatis.bean.Order">
 	 	select order_id id,order_no orderNo,order_price price from orders where order_id = #{id}
 	 </select>
-	 <select id="getOrder2" parameterType="int" parameterMap="getOrder2Map">
+	 <select id="getOrder2" parameterType="int" resultMap="getOrder2Map">
 	 	select * from orders where order_id = #{id}
 	 </select>
 	 <!-- 

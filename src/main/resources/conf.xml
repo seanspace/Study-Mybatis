@@ -8,8 +8,8 @@
  	<properties resource="db.properties"></properties> 
  	<!-- 配置实体类的别名 -->
  	<typeAliases>
- 		<typeAlias type="com.bin.mybatis.helloworld.bean.User" alias="User"/>
- 		<!-- <package name="com.bin.mybatis.helloworld.bean"/> -->
+ 		<!-- <typeAlias type="com.bin.mybatis.helloworld.bean.User" alias="User"/> -->
+ 		<package name="com.bin.mybatis.bean"/>
  	</typeAliases>
 	<environments default="development">
 		<environment id="development">
@@ -26,6 +26,7 @@
 		<mapper resource="com/bin/mybatis/helloworld/userMapper.xml"/>
 		<mapper resource="com/bin/mybatis/crud/userMapper.xml"/>
 		<mapper resource="com/bin/mybatis/order/orderMapper.xml"/>
+		<mapper resource="com/bin/mybatis/onebyone/ClassMapper.xml"/>
 		<mapper class="com.bin.mybatis.crud.anotation.UserMapper"/>
 	</mappers>
 </configuration>
