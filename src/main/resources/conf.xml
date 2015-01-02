@@ -27,6 +27,7 @@
 		<mapper resource="com/bin/mybatis/crud/userMapper.xml"/>
 		<mapper resource="com/bin/mybatis/order/orderMapper.xml"/>
 		<mapper resource="com/bin/mybatis/onebyone/ClassMapper.xml"/>
+		<mapper resource="com/bin/mybatis/onetomany/ClassMapper.xml"/>
 		<mapper class="com.bin.mybatis.crud.anotation.UserMapper"/>
 	</mappers>
 </configuration>
