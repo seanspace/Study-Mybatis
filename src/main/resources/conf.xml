@@ -29,6 +29,7 @@
 		<mapper resource="com/bin/mybatis/onebyone/ClassMapper.xml"/>
 		<mapper resource="com/bin/mybatis/onetomany/ClassMapper.xml"/>
 		<mapper resource="com/bin/mybatis/multicondition/userMapper.xml"/>
+		<mapper resource="com/bin/mybatis/procedure/procedureMapper.xml"/>
 		<mapper class="com.bin.mybatis.crud.anotation.UserMapper"/>
 	</mappers>
 </configuration>
