@@ -41,4 +41,7 @@
 			transaction-manager :应用上面定义的事务管理器.
 	 -->
 	<tx:annotation-driven transaction-manager="txManager"/>
+
+	<!--编程式事务-->
+	<bean id="transactionTemplate" class="org.springframework.transaction.support.TransactionTemplate"></bean>
 </beans>
